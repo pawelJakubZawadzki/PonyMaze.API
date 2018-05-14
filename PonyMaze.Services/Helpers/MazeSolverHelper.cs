@@ -28,7 +28,9 @@ namespace PonyMaze.Services.Helpers
                 ShouldSolveAgain = false;
             }
 
-            return RightMovements.Dequeue();
+            return RightMovements.Count > 1
+                ? RightMovements.Dequeue()
+                : RightMovements.First();
         }
 
         public void UpdatePonyLocation(string direction)
